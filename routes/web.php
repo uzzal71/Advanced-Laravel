@@ -19,4 +19,8 @@ Route::get('/', function () {
 
 Route::namespace('Web')->group(function() {
 	Route::resource('teams', 'TeamController');
+
+    Route::get('/teams/{team}/title', function(\App\Models\Team $team){
+		return response()->json_response($team);
+	});
 });
