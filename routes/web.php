@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::group(['namespace' => 'Web', 'prefix' => 'testing'], function() {
 	Route::resource('teams', 'TeamController');
