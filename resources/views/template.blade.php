@@ -13,9 +13,16 @@
     <link href="/css/app.css" rel="stylesheet">
     <link rel="icon" href="/favicon.ico">
     <meta name="theme-color" content="#7952b3">
+
+    <style>
+        input {
+            background-color: #fff !important;
+            border: 1px soid aliceblue;
+        }
+    </style>
 </head>
 
-<body>
+<body class="bg-white">
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
@@ -43,8 +50,8 @@
             </div>
         </div>
     </nav>
-
-    <main class="container">
+    <br />
+    <main class="container mt-5">
         <div class="bg-light p-5 mt-5 rounded">
             @yield('content')
         </div>
