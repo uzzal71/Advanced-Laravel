@@ -1,5 +1,6 @@
 <?php
 
+namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -11,9 +12,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Team::class, 10)->create();
-        factory(App\User::class, 25)->create();
-        factory(App\Ticket::class, 500)->create();
-        factory(App\Point::class, 2000)->create();
+        \App\Models\Team::factory(10)->create();
+        \App\Models\User::factory(25)->create();
+        \App\Models\Ticket::factory(500)->create();
+        \App\Models\Point::factory(2000)->create();
     }
 }
