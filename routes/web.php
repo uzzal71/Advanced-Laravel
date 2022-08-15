@@ -33,7 +33,7 @@ Route::group(['namespace' => 'Web'], function() {
 
 Route::get('/square/{number?}', function($number = 10){
 	return $number * $number;
-});
+})->middleware('auth:email');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
