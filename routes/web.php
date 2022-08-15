@@ -17,10 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::group(['namespace' => 'Web', 'prefix' => 'testing'], function() {
+Route::group(['namespace' => 'Web'], function() {
 	Route::resource('teams', 'TeamController');
 
     Route::get('/teams/{team}/title', function(\App\Models\Team $team){
 		return response()->json_response($team);
 	});
+
+    Route::get('/teams/{team}/activate', function() {
+		return view('team/activate');
+	})->name('activateTeam')->middleware('signed');
 });
