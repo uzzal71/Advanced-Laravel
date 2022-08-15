@@ -11,6 +11,7 @@ class TeamController extends Controller
     public function __construct(\App\Teams\Repository $teams)
     {
         $this->teams = $teams;
+        $this->authorizeResource(Team::class, 'team');
     }
 
     /**
@@ -94,6 +95,7 @@ class TeamController extends Controller
 
     public function points(Team $team)
     {
+        $this->authorize('view', $team);
         return response()->json($this->teams->points($team));
     }
 }
