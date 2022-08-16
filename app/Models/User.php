@@ -45,8 +45,6 @@ class User extends Authenticatable
     protected static function boot()
     {
         parent::boot();
-        static::creating(function($model) {
-            $model->team_id = \DB::table('teams')->inRandomOrder()->first()->id;
-        });
+        static::observe('App\Observers\UserObserver');
     }
 }
