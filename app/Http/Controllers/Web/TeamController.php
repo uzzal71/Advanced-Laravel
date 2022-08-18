@@ -11,7 +11,7 @@ class TeamController extends Controller
     public function __construct(\App\Teams\Repository $teams)
     {
         $this->teams = $teams;
-        $this->authorizeResource(Team::class, 'team');
+        //$this->authorizeResource(Team::class, 'team');
     }
 
     /**
@@ -21,7 +21,13 @@ class TeamController extends Controller
      */
     public function index()
     {
-        return Team::paginate(5);
+        // return Team::all()->chunk(2)->eachSpread(function($team1, $team2) {
+        //     dd($team1);
+        // });
+
+        return Team::all()->map(function($team, $key) {
+            return $team->title;
+        });
     }
 
     /**
